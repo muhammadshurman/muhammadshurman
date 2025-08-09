@@ -1,4 +1,4 @@
-# 🚀 Muhammad Al-Shurman
+# 👨‍💻 Muhammad Al-Shurman
 
 **`Full-Stack & Game Developer | Digital Craftsman`**
 
@@ -51,5 +51,8 @@ My portfolio includes real-world client projects, published games, and community
 
 ### 📊 GitHub Stats
 ![Muhammad's GitHub stats](https://github-readme-stats.vercel.app/api?username=muhammadshurman&show_icons=true&theme=gruvbox&include_all_commits=true&cache_seconds=1800)
+
+### 📊 GitHub Metrics
+![Metrics](./metrics.svg)
 
 ---
