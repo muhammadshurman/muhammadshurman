@@ -11,12 +11,15 @@ My portfolio includes real-world client projects, published games, and community
 ---
 
 <p align="left">
-   <a href="https://www.upwork.com/freelancers/~YOURUPWORKPROFILE">
+   <a href="https://www.upwork.com/freelancers/~01d6bfb05bb6575a3b">
       <img alt="Hire me on Upwork" title="Hire me on Upwork" src="https://custom-icon-badges.demolab.com/badge/-Hire%20on%20Upwork-6fda44?style=for-the-badge&logo=upwork&logoColor=white"/></a> 
-   <a href="https://github.com/YOURGITHUB?tab=followers">
+   <a href="https://github.com/muhammadshurman?tab=followers">
       <img alt="followers" title="Follow me on GitHub" src="https://custom-icon-badges.demolab.com/github/followers/YOURGITHUB?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=person-add&label=Follow&logoColor=white"/></a>
-   <a href="https://github.com/YOURGITHUB?tab=repositories&sort=stargazers">
-      <img alt="total stars" title="Total stars on GitHub" src="https://custom-icon-badges.demolab.com/github/stars/YOURGITHUB?color=55960c&style=for-the-badge&labelColor=488207&logo=star"/></a>
+  <a href="https://www.linkedin.com/in/muhammadalshorman/">
+   <img alt="Connect on LinkedIn" title="Connect on LinkedIn" src="https://custom-icon-badges.demolab.com/badge/-Connect%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+
 </p>
 
 ---
@@ -25,7 +28,7 @@ My portfolio includes real-world client projects, published games, and community
 
 <img align="left" alt="C#" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"/>
 <img align="left" alt="Unity" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg"/>
-<img align="left" alt="Laravel" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"/>
+<img align="left" alt="Laravel" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"/>
 <img align="left" alt="ASP.NET Core" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"/>
 <img align="left" alt="Angular" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"/>
 <img align="left" alt="TypeScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"/>
