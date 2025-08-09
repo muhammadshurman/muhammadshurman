@@ -1,0 +1,28 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    - cron: "0 6 * * *"    
+  workflow_dispatch:        
+
+permissions:
+  contents: write          
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate metrics SVG
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.PAT_1 }}  
+          user: muhammadshurman
+          template: classic
+          filename: metrics.svg
+          output_action: commit
+          committer_message: "chore: update metrics"
+          config_timezone: Asia/Amman
+
+          plugin_followup: yes
+          plugin_followup_sections: user
+          plugin_followup_indepth: yes
