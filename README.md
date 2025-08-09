@@ -52,6 +52,7 @@ My portfolio includes real-world client projects, published games, and community
 ### 📊 GitHub Stats
 ![Muhammad's GitHub stats](https://github-readme-stats.vercel.app/api?username=muhammadshurman&show_icons=true&theme=gruvbox&include_all_commits=true&cache_seconds=1800)
 
+![My GitHub Stats](./metrics.svg)
 
 
 ---
