@@ -2,11 +2,11 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: "0 6 * * *"    
-  workflow_dispatch:        
+    - cron: "0 6 * * *"      # يوميًّا 06:00 UTC
+  workflow_dispatch:          # تشغيل يدوي
 
 permissions:
-  contents: write          
+  contents: write
 
 jobs:
   build:
@@ -15,14 +15,17 @@ jobs:
       - name: Generate metrics SVG
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ secrets.PAT_1 }}  
+          token: ${{ secrets.PAT_1 }}          # تأكد أن السر موجود باسم PAT_1
           user: muhammadshurman
           template: classic
           filename: metrics.svg
           output_action: commit
+          committer_branch: main               # مهم: اكتب على main
           committer_message: "chore: update metrics"
           config_timezone: Asia/Amman
+          repositories_affiliations: owner, collaborator
 
+          # يعرض Totals (PRs, Issues, Repos contributed) من بداية الحساب
           plugin_followup: yes
           plugin_followup_sections: user
           plugin_followup_indepth: yes
