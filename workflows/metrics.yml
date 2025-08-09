@@ -2,8 +2,8 @@
 
 on:
   schedule:
-    - cron: "0 6 * * *"
-  workflow_dispatch:
+    - cron: "0 6 * * *"     # يوميًّا 06:00 UTC
+  workflow_dispatch:         # تشغيل يدوي
 
 permissions:
   contents: write
@@ -17,17 +17,19 @@ jobs:
         with:
           token: ${{ secrets.PAT_1 }}
           user: muhammadshurman
-          template: classic
+
+          # أين و كيف يحفظ الناتج
           filename: metrics.svg
-          base: header
+          output_action: commit
+          committer_message: "chore: update metrics"
           config_timezone: Asia/Amman
-          
-          # إظهار إحصائيات المتابعة والمساهمات من بداية الحساب
+
+          # عرض الأرقام التي تهمّك (كل الزمن)
           plugin_followup: yes
           plugin_followup_sections: user
           plugin_followup_indepth: yes
 
+          # نشاط إضافي إن رغبت
           plugin_activity: yes
-          plugin_activity_limit: 100
-          plugin_activity_days: 3650   # 10 سنوات للخلف
           plugin_activity_filter: all
+          plugin_activity_days: 3650   # ~10 سنوات
