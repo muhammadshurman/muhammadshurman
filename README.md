@@ -42,7 +42,7 @@ My portfolio includes real-world client projects, published games, and community
 ---
 
 ### 🎮 Featured Projects
-- **[Kyami Studio – Official Game Studio Website](https://kyamistudio.com)** – Indie game studio portfolio & game showcase.
+- **Kyami Studio – Official Game Studio Website** – Indie game studio portfolio & game showcase.
 - **Emirates Drift (Mobile Game)** – Hajwalah-style racing game developed in Unity.
 - **The Secrets of Pyramids (3D Adventure)** – Egyptian-themed puzzle adventure game.
 - **abjd.store (E-Commerce)** – Scalable Laravel-based online store with RESTful APIs.
@@ -50,6 +50,6 @@ My portfolio includes real-world client projects, published games, and community
 ---
 
 ### 📊 GitHub Stats
-![Muhammad's GitHub stats](https://github-readme-stats.vercel.app/api?username=YOURGITHUB&show_icons=true&theme=gruvbox)
+![Muhammad's GitHub stats](https://github-readme-stats.vercel.app/api?username=muhammadshurman&show_icons=true&theme=gruvbox)
 
 ---
