@@ -47,21 +47,12 @@ My portfolio includes real-world client projects, published games, and community
 - **The Secrets of Pyramids (3D Adventure)** – Egyptian-themed puzzle adventure game.
 - **abjd.store (E-Commerce)** – Scalable Laravel-based online store with RESTful APIs.
 
----
-### 📺 Latest YouTube Videos
+### 💼 Latest LinkedIn Posts
 
-<!-- BEGIN YOUTUBE-CARDS -->
-[![Everything You NEED to Know About TECH DEBT](https://ytcards.demolab.com/?id=ukgmp6uxQJc&title=Everything+You+NEED+to+Know+About+TECH+DEBT&lang=en&timestamp=1753375920&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=1533 "Everything You NEED to Know About TECH DEBT")](https://www.youtube.com/watch?v=ukgmp6uxQJc)
-[![My New PC // I have way too many.](https://ytcards.demolab.com/?id=m5rvhYKrIM4&title=My+New+PC+%2F%2F+I+have+way+too+many.&lang=en&timestamp=1753205655&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=45 "My New PC // I have way too many.")](https://www.youtube.com/shorts/m5rvhYKrIM4)
-[![My Linux Ubuntu Setup for Software Development](https://ytcards.demolab.com/?id=T3sax7PB0vw&title=My+Linux+Ubuntu+Setup+for+Software+Development&lang=en&timestamp=1751899205&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=1283 "My Linux Ubuntu Setup for Software Development")](https://www.youtube.com/watch?v=T3sax7PB0vw)
-[![I Overengineered 3 Buttons to Explain Software Architecture](https://ytcards.demolab.com/?id=Aw3_hOG3BzE&title=I+Overengineered+3+Buttons+to+Explain+Software+Architecture&lang=en&timestamp=1750868400&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=851 "I Overengineered 3 Buttons to Explain Software Architecture")](https://www.youtube.com/watch?v=Aw3_hOG3BzE)
-[![Computer Melting](https://ytcards.demolab.com/?id=OAiLfS7Gx-g&title=Computer+Melting&lang=en&timestamp=1750462931&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=41 "Computer Melting")](https://www.youtube.com/shorts/OAiLfS7Gx-g)
-[![i'm sorry nixOS, i've failed you. maybe next time.](https://ytcards.demolab.com/?id=YMxTTTBZhYM&title=i%27m+sorry+nixOS%2C+i%27ve+failed+you.+maybe+next+time.&lang=en&timestamp=1749850211&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5&duration=902 "i'm sorry nixOS, i've failed you. maybe next time.")](https://www.youtube.com/watch?v=YMxTTTBZhYM)
-<!-- END YOUTUBE-CARDS -->
+[![Post 1](https://custom-icon-badges.demolab.com/badge/-Unity%20Game%20Development-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_unity-csharp-gamedev-activity-XXXX)
+[![Post 2](https://custom-icon-badges.demolab.com/badge/-Laravel%20Ecommerce%20Project-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_laravel-php-webdevelopment-activity-XXXX)
+[![Post 3](https://custom-icon-badges.demolab.com/badge/-Kyami%20Studio%20Update-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_kyamistudio-gamedev-unity-activity-XXXX)
 
-[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/c/fknight?sub_confirmation=1)
-
-#
 
 
 ### 📊 GitHub Stats
