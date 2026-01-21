@@ -55,11 +55,7 @@ Additional experience in **Unity (C#)** game development for commercial and indi
 - **Enterprise Operations Platform**  
   Internal system for requests, approvals, and access control built with Laravel MVC.
 
-### 💼 Latest LinkedIn Posts
 
-[![Post 1](https://custom-icon-badges.demolab.com/badge/-Unity%20Game%20Development-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_unity-csharp-gamedev-activity-XXXX)
-[![Post 2](https://custom-icon-badges.demolab.com/badge/-Laravel%20Ecommerce%20Project-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_laravel-php-webdevelopment-activity-XXXX)
-[![Post 3](https://custom-icon-badges.demolab.com/badge/-Kyami%20Studio%20Update-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_kyamistudio-gamedev-unity-activity-XXXX)
 
 ### 🌍 Professional Presence
 
