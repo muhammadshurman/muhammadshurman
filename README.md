@@ -1,12 +1,16 @@
 # 👨‍💻 Muhammad Al-Shurman
 
-**`Full-Stack & Game Developer | Digital Craftsman`**
+**`Software Developer | Laravel & PHP | Backend-Focused Full-Stack`**
 
-I’m an indie developer with a passion for creating **high-performance web applications** and **immersive mobile games**.  
-From building scalable **Laravel & ASP.NET Core** e-commerce platforms to developing engaging **Unity (C#) racing, simulation, and casual games**, I deliver end-to-end solutions — from concept and architecture to deployment and optimization.
+Software Developer with hands-on experience building **production Laravel applications**,  
+**RESTful APIs**, and **database-driven systems** used by real users.
 
-I work with clean code principles, modern UI/UX design practices, and a performance-first mindset to help clients and studios bring their ideas to life.  
-My portfolio includes real-world client projects, published games, and community-driven platforms.
+Delivered scalable web platforms, optimized backend performance, and collaborated directly  
+with clients and stakeholders to translate business requirements into reliable releases.
+
+Strong focus on **clean architecture**, **API design**, **SQL optimization**, and  
+maintainable backend systems.  
+Additional experience in **Unity (C#)** game development for commercial and indie projects.
 
 ---
 
@@ -41,11 +45,16 @@ My portfolio includes real-world client projects, published games, and community
 
 ---
 
-### 🎮 Featured Projects
-- **Kyami Studio – Official Game Studio Website** – Indie game studio portfolio & game showcase.
-- **Emirates Drift (Mobile Game)** – Hajwalah-style racing game developed in Unity.
-- **The Secrets of Pyramids (3D Adventure)** – Egyptian-themed puzzle adventure game.
-- **abjd.store (E-Commerce)** – Scalable Laravel-based online store with RESTful APIs.
+### 💼 Selected Projects
+
+- **abjd.store (E-Commerce Platform)**  
+  Laravel-based online store with RESTful APIs, optimized queries, and production deployment.
+
+- **School Management Platform**  
+  Role-based system supporting academic workflows for **176 students** using Laravel & SQL.
+
+- **Enterprise Operations Platform**  
+  Internal system for requests, approvals, and access control built with Laravel MVC.
 
 ### 💼 Latest LinkedIn Posts
 
@@ -53,7 +62,10 @@ My portfolio includes real-world client projects, published games, and community
 [![Post 2](https://custom-icon-badges.demolab.com/badge/-Laravel%20Ecommerce%20Project-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_laravel-php-webdevelopment-activity-XXXX)
 [![Post 3](https://custom-icon-badges.demolab.com/badge/-Kyami%20Studio%20Update-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/muhammadalshorman_kyamistudio-gamedev-unity-activity-XXXX)
 
+### 🌍 Professional Presence
 
+- **LinkedIn:** https://www.linkedin.com/in/muhammadalshorman  
+- **GitHub:** https://github.com/muhammadshurman 
 
 ### 📊 GitHub Stats
 ![Muhammad's GitHub stats](https://github-readme-stats.vercel.app/api?username=muhammadshurman&show_icons=true&theme=gruvbox&include_all_commits=true&cache_seconds=1800)
