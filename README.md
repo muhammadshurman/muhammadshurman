@@ -17,8 +17,7 @@ Additional experience in **Unity (C#)** game development for commercial and indi
 <p align="left">
    <a href="https://www.upwork.com/freelancers/~01d6bfb05bb6575a3b">
       <img alt="Hire me on Upwork" title="Hire me on Upwork" src="https://custom-icon-badges.demolab.com/badge/-Hire%20on%20Upwork-6fda44?style=for-the-badge&logo=upwork&logoColor=white"/></a> 
-   <a href="https://github.com/muhammadshurman?tab=followers">
-      <img alt="followers" title="Follow me on GitHub" src="https://custom-icon-badges.demolab.com/github/followers/YOURGITHUB?color=236ad3&labelColor=1155ba&style=for-the-badge&logo=person-add&label=Follow&logoColor=white"/></a>
+   
   <a href="https://www.linkedin.com/in/muhammadalshorman/">
    <img alt="Connect on LinkedIn" title="Connect on LinkedIn" src="https://custom-icon-badges.demolab.com/badge/-Connect%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
