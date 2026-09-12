@@ -26,7 +26,7 @@ PORTRAIT = next(
     None,
 )
 
-W, H = 1200, 610
+W, H = 1200, 672
 BAR = 42
 PAD = 32
 LEFT_W = 440
@@ -202,18 +202,18 @@ def render(cfg):
     for i, cx in enumerate((26, 46, 66)):
         s.append(f'  <circle cx="{cx}" cy="{BAR/2:.0f}" r="5" fill="{DIM}" opacity="{0.45 + i*0.12:.2f}"/>')
     s.append(
-        f'  <text x="{W/2:.0f}" y="{BAR/2 + 4:.0f}" text-anchor="middle" font-family="{MONO}" font-size="11.5" '
+        f'  <text x="{W/2:.0f}" y="{BAR/2 + 4:.0f}" text-anchor="middle" font-family="{MONO}" font-size="13" '
         f'fill="{DIM}">{esc(cfg["prompt"])}</text>'
     )
     s.append(
-        f'  <rect x="{W/2 + len(cfg["prompt"]) * 3.45:.0f}" y="{BAR/2 - 7:.0f}" width="7" height="13" fill="{ACC}">'
+        f'  <rect x="{W/2 + len(cfg["prompt"]) * 3.9:.0f}" y="{BAR/2 - 7:.0f}" width="7" height="13" fill="{ACC}">'
         f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.45;0.5;1" dur="1.1s" '
         f'repeatCount="indefinite"/></rect>'
     )
     s.append(f'  <circle cx="{W-118}" cy="{BAR/2:.0f}" r="3.5" fill="{ACC}">'
              f'<animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/></circle>')
     s.append(
-        f'  <text x="{W-104}" y="{BAR/2 + 4:.0f}" font-family="{MONO}" font-size="10" letter-spacing="1.4" '
+        f'  <text x="{W-104}" y="{BAR/2 + 4:.0f}" font-family="{MONO}" font-size="11.5" letter-spacing="1.4" '
         f'fill="{ACC}">{esc(cfg["status"])}</text>'
     )
 
@@ -222,7 +222,7 @@ def render(cfg):
         f'fill="#080B10" stroke="{LINE}"/>'
     )
     s.append(
-        f'  <text x="{left_x + 18}" y="{left_y + 22}" font-family="{MONO}" font-size="9.5" letter-spacing="1.6" '
+        f'  <text x="{left_x + 18}" y="{left_y + 22}" font-family="{MONO}" font-size="11" letter-spacing="1.6" '
         f'fill="{DIM}">{esc(cfg["portrait_label"])}</text>'
     )
 
@@ -249,31 +249,31 @@ def render(cfg):
 
     y = left_y + 20
     s.append(
-        f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="9.5" letter-spacing="1.6" '
+        f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="11" letter-spacing="1.6" '
         f'fill="{DIM}">{esc(cfg["card_label"])}</text>'
     )
     y += 26
     s.append(
-        f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="12.5" fill="{MUTED}">'
+        f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="14.5" fill="{MUTED}">'
         f'{esc(cfg["user"])} {"-" * 44}</text>'
     )
 
     reveal = []
 
     def block(title, items, y):
-        y += 30
+        y += 34
         if title:
             s.append(
-                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" '
+                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="12" letter-spacing="1.5" '
                 f'fill="{DIM}">{esc(title)} {"-" * 34}</text>'
             )
-            y += 22
+            y += 25
         for label, value in items:
             lab, dots, val = leader(label, value)
             t0 = 0.30 + 0.045 * len(reveal)
             reveal.append(1)
             s.append(
-                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="12.5" opacity="1" '
+                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="14.5" opacity="1" '
                 f'xml:space="preserve">'
                 f'<tspan fill="{ACC}">{esc(lab)}:</tspan>'
                 f'<tspan fill="#28303D"> {esc(dots)} </tspan>'
@@ -281,7 +281,7 @@ def render(cfg):
                 f'<animate attributeName="opacity" values="0;0;1" '
                 f'keyTimes="0;{min(0.94, t0):.3f};{min(0.999, t0 + 0.05):.3f}" dur="2.9s" fill="freeze"/></text>'
             )
-            y += 21
+            y += 24
         return y
 
     y = block("", cfg["rows"], y - 8)
@@ -289,11 +289,11 @@ def render(cfg):
     y = block("SELECTED.WORK", cfg["work"], y)
 
     s.append(
-        f'  <text x="{right_x}" y="{y + 28}" font-family="{MONO}" font-size="11.5" letter-spacing="1.2" '
+        f'  <text x="{right_x}" y="{y + 28}" font-family="{MONO}" font-size="13" letter-spacing="1.2" '
         f'fill="{MUTED}">{esc(cfg["tagline"])}</text>'
     )
     s.append(
-        f'  <text x="{W/2:.0f}" y="{H-22}" text-anchor="middle" font-family="{MONO}" font-size="9.5" '
+        f'  <text x="{W/2:.0f}" y="{H-22}" text-anchor="middle" font-family="{MONO}" font-size="11" '
         f'letter-spacing="2" fill="#39424F">{esc(cfg["footer"])}</text>'
     )
     s.append("</svg>")

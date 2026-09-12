@@ -156,9 +156,9 @@ def render(d):
         (compact(d["stars"]), "STARS EARNED"),
     ]
     cell = inner / len(metrics)
-    bar_y, bar_h = 176, 10
-    legend_y = 218
-    H = 258
+    bar_y, bar_h = 184, 12
+    legend_y = 230
+    H = 274
 
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
@@ -169,17 +169,17 @@ def render(d):
     for i, (value, label) in enumerate(metrics):
         x = PAD + cell * i
         if i:
-            s.append(f'  <path d="M{x:.0f} 44V116" stroke="{LINE}"/>')
+            s.append(f'  <path d="M{x:.0f} 44V122" stroke="{LINE}"/>')
         s.append(
-            f'  <text x="{x + 28:.0f}" y="88" font-family="{SANS}" font-size="34" font-weight="600" '
+            f'  <text x="{x + 28:.0f}" y="92" font-family="{SANS}" font-size="40" font-weight="600" '
             f'letter-spacing="-0.5" fill="{TEXT}">{value}</text>'
         )
         s.append(
-            f'  <text x="{x + 28:.0f}" y="112" font-family="{MONO}" font-size="11" '
+            f'  <text x="{x + 28:.0f}" y="116" font-family="{MONO}" font-size="13" '
             f'letter-spacing="1.2" fill="{DIM}">{label}</text>'
         )
 
-    s.append(f'  <path d="M{PAD} 146H{W-PAD}" stroke="{LINE}"/>')
+    s.append(f'  <path d="M{PAD} 152H{W-PAD}" stroke="{LINE}"/>')
 
     x = float(PAD)
     s.append(f'  <clipPath id="barclip"><rect x="{PAD}" y="{bar_y}" width="{inner}" height="{bar_h}" rx="5"/></clipPath>')
@@ -195,13 +195,13 @@ def render(d):
         label = f"{name} {pct:g}%"
         s.append(f'  <circle cx="{lx + 4:.0f}" cy="{legend_y - 4}" r="4" fill="{color}"/>')
         s.append(
-            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="13" '
+            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="15.5" '
             f'fill="{MUTED}">{label}</text>'
         )
-        lx += len(label) * 7.1 + 44
+        lx += len(label) * 8.6 + 48
 
     s.append(
-        f'  <text x="{W-PAD}" y="{H-22}" text-anchor="end" font-family="{MONO}" font-size="10" '
+        f'  <text x="{W-PAD}" y="{H-22}" text-anchor="end" font-family="{MONO}" font-size="11.5" '
         f'letter-spacing="1.3" fill="#3E4757">UPDATED {datetime.now(timezone.utc):%Y-%m-%d}</text>'
     )
     s.append("</svg>")
