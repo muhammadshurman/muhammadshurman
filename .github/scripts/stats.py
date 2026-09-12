@@ -16,16 +16,18 @@ TOKEN = os.environ.get("GH_TOKEN", "")
 OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "stats.svg")
 
 QUERY = """
-query($login: String!, $cursor: String) {
-  user(login: $login) {
+query($cursor: String) {
+  viewer {
     followers { totalCount }
     pullRequests(states: MERGED) { totalCount }
     contributionsCollection { totalCommitContributions restrictedContributionsCount }
-    repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false) {
-      totalCount
+    repositories(first: 100, after: $cursor, isFork: false,
+                 affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER],
+                 ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {      totalCount
       pageInfo { hasNextPage endCursor }
       nodes {
         stargazerCount
+        owner { login }
         languages(first: 12, orderBy: {field: SIZE, direction: DESC}) {
           edges { size node { name color } }
         }
@@ -37,7 +39,7 @@ query($login: String!, $cursor: String) {
 
 
 def gql(cursor=None):
-    body = json.dumps({"query": QUERY, "variables": {"login": LOGIN, "cursor": cursor}}).encode()
+    body = json.dumps({"query": QUERY, "variables": {"cursor": cursor}}).encode()
     req = urllib.request.Request(
         "https://api.github.com/graphql",
         data=body,
@@ -51,7 +53,7 @@ def gql(cursor=None):
         payload = json.load(r)
     if "errors" in payload:
         raise RuntimeError(payload["errors"])
-    return payload["data"]["user"]
+    return payload["data"]["viewer"]
 
 
 def collect():
@@ -65,14 +67,16 @@ def collect():
                       ("CSS", "#663399", 6.0), ("Other", "#3A4454", 4.0)],
         }
 
-    stars, sizes, colors = 0, {}, {}
+    stars, owned, sizes, colors = 0, 0, {}, {}
     cursor, first = None, None
     while True:
         user = gql(cursor)
         first = first or user
         repos = user["repositories"]
         for node in repos["nodes"]:
-            stars += node["stargazerCount"]
+            if node["owner"]["login"].lower() == LOGIN.lower():
+                stars += node["stargazerCount"]
+                owned += 1
             for edge in node["languages"]["edges"]:
                 name = edge["node"]["name"]
                 sizes[name] = sizes.get(name, 0) + edge["size"]
@@ -93,7 +97,7 @@ def collect():
         "commits": contrib["totalCommitContributions"] + contrib["restrictedContributionsCount"],
         "stars": stars,
         "prs": first["pullRequests"]["totalCount"],
-        "repos": first["repositories"]["totalCount"],
+        "repos": owned,
         "langs": langs,
     }
 
@@ -107,7 +111,7 @@ def render(d):
     inner = W - PAD * 2
     metrics = [
         (compact(d["commits"]), "COMMITS / 12 MONTHS"),
-        (compact(d["repos"]), "PUBLIC REPOSITORIES"),
+        (compact(d["repos"]), "REPOSITORIES"),
         (compact(d["prs"]), "MERGED PULL REQUESTS"),
         (compact(d["stars"]), "STARS EARNED"),
     ]
