@@ -1,40 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 258" width="1200" height="258" role="img" aria-label="GitHub activity for muhammadshurman">
   <rect x="0.5" y="0.5" width="1199" height="257" rx="18" fill="#0B0E14" stroke="#1A2230"/>
-  <text x="92" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">433</text>
-  <text x="92" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="1.2" fill="#5C6779">COMMITS / 12 MONTHS</text>
+  <text x="92" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">434</text>
+  <text x="92" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="1.2" fill="#5C6779">COMMITS / 12 MONTHS</text>
   <path d="M332 44V116" stroke="#1A2230"/>
   <text x="360" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">36</text>
-  <text x="360" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="1.2" fill="#5C6779">REPOSITORIES</text>
+  <text x="360" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="1.2" fill="#5C6779">REPOSITORIES</text>
   <path d="M600 44V116" stroke="#1A2230"/>
   <text x="628" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">226</text>
-  <text x="628" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="1.2" fill="#5C6779">MERGED PULL REQUESTS</text>
+  <text x="628" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="1.2" fill="#5C6779">MERGED PULL REQUESTS</text>
   <path d="M868 44V116" stroke="#1A2230"/>
   <text x="896" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">38</text>
-  <text x="896" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="1.2" fill="#5C6779">STARS EARNED</text>
+  <text x="896" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="1.2" fill="#5C6779">STARS EARNED</text>
   <path d="M64 146H1136" stroke="#1A2230"/>
   <clipPath id="barclip"><rect x="64" y="176" width="1072" height="10" rx="5"/></clipPath>
   <g clip-path="url(#barclip)">
-    <rect x="64.0" y="176" width="334.4" height="10" fill="#4F5D95"/>
-    <rect x="397.4" y="176" width="316.2" height="10" fill="#f7523f"/>
-    <rect x="712.6" y="176" width="247.6" height="10" fill="#f1e05a"/>
-    <rect x="959.1" y="176" width="90.0" height="10" fill="#3178c6"/>
-    <rect x="1048.1" y="176" width="55.7" height="10" fill="#00B4AB"/>
-    <rect x="1102.8" y="176" width="26.7" height="10" fill="#336790"/>
-    <rect x="1128.5" y="176" width="8.5" height="10" fill="#3A4454"/>
+    <rect x="64.0" y="176" width="406.2" height="10" fill="#4F5D95"/>
+    <rect x="469.2" y="176" width="383.7" height="10" fill="#f7523f"/>
+    <rect x="851.9" y="176" width="233.6" height="10" fill="#f1e05a"/>
+    <rect x="1084.5" y="176" width="51.4" height="10" fill="#3178c6"/>
   </g>
   <circle cx="68" cy="214" r="4" fill="#4F5D95"/>
-  <text x="80" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">PHP 31.1%</text>
-  <circle cx="188" cy="214" r="4" fill="#f7523f"/>
-  <text x="200" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">Blade 29.4%</text>
-  <circle cx="324" cy="214" r="4" fill="#f1e05a"/>
-  <text x="336" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">JavaScript 23%</text>
-  <circle cx="485" cy="214" r="4" fill="#3178c6"/>
-  <text x="497" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">TypeScript 8.3%</text>
-  <circle cx="654" cy="214" r="4" fill="#00B4AB"/>
-  <text x="666" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">Dart 5.1%</text>
-  <circle cx="774" cy="214" r="4" fill="#336790"/>
-  <text x="786" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">PLpgSQL 2.4%</text>
-  <circle cx="918" cy="214" r="4" fill="#3A4454"/>
-  <text x="930" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" fill="#8B97AA">Other 0.7%</text>
+  <text x="80" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#8B97AA">PHP 37.8%</text>
+  <circle cx="176" cy="214" r="4" fill="#f7523f"/>
+  <text x="188" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#8B97AA">Blade 35.7%</text>
+  <circle cx="298" cy="214" r="4" fill="#f1e05a"/>
+  <text x="310" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#8B97AA">JavaScript 21.7%</text>
+  <circle cx="456" cy="214" r="4" fill="#3178c6"/>
+  <text x="468" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#8B97AA">TypeScript 4.7%</text>
   <text x="1136" y="236" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" letter-spacing="1.3" fill="#3E4757">UPDATED 2026-09-12</text>
 </svg>
