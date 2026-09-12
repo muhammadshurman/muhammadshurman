@@ -1,5 +1,8 @@
 <img src="assets/hero.svg" alt="Muhammad Al-Shurman, backend-focused full-stack developer" width="100%" />
 
+<div align="center">
+  <a href="https://muhammadalshurman.com/en"><img src="https://img.shields.io/badge/View%20portfolio-0B0E14?style=for-the-badge&labelColor=0B0E14&color=0B0E14&logoColor=5B8DEF" alt="View portfolio" height="34" /></a>
+</div>
 I build web platforms that hold up in production. Most of my work sits on the server side: REST APIs, relational data models, and the unglamorous work of keeping queries fast while the data keeps growing. Laravel and PostgreSQL do the heavy lifting, with Next.js and TypeScript on the interfaces that sit on top of them.
 
 <a href="https://www.linkedin.com/in/muhammadalshorman/"><img src="https://img.shields.io/badge/LinkedIn-0B0E14?style=flat-square&logo=linkedin&logoColor=5B8DEF&labelColor=0B0E14" alt="LinkedIn" height="28" /></a>
