@@ -125,7 +125,7 @@ def collect():
 
     total = sum(sizes.values()) or 1
     ranked = sorted(sizes.items(), key=lambda kv: -kv[1])
-     langs = [(n, COLORS.get(n, FALLBACK), round(s / total * 100, 1)) for n, s in ranked[:6]]
+    langs = [(n, COLORS.get(n, FALLBACK), round(s / total * 100, 1)) for n, s in ranked[:6]]
     langs = [l for l in langs if l[2] >= 0.5]
     rest = round(100 - sum(p for _, _, p in langs), 1)
     if rest >= 0.5:
