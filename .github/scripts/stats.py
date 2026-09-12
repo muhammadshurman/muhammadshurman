@@ -38,8 +38,8 @@ COLORS = {
     "Handlebars": "#f7931e", "EJS": "#a91e50", "Batchfile": "#C1F12E", "Procfile": "#3A4454",
 }
 FALLBACK = "#3A4454"
-IGNORED = {"HTML", "CSS", "SCSS", "Less", "Hack", "Batchfile", "Procfile", "Dockerfile", "Makefile",
-           "C#", "Kotlin", "ShaderLab", "HLSL", "Java", "Swift"}
+IGNORED = {"HTML", "CSS", "SCSS", "Less", "Hack", "Batchfile", "Procfile", "Dockerfile",
+           "Makefile", "C#", "Kotlin", "ShaderLab", "HLSL", "Java", "Swift"}
 
 
 def api(url, attempts=4):
@@ -175,7 +175,7 @@ def render(d):
             f'letter-spacing="-0.5" fill="{TEXT}">{value}</text>'
         )
         s.append(
-            f'  <text x="{x + 28:.0f}" y="112" font-family="{MONO}" font-size="12" '
+            f'  <text x="{x + 28:.0f}" y="112" font-family="{MONO}" font-size="11" '
             f'letter-spacing="1.2" fill="{DIM}">{label}</text>'
         )
 
@@ -195,10 +195,10 @@ def render(d):
         label = f"{name} {pct:g}%"
         s.append(f'  <circle cx="{lx + 4:.0f}" cy="{legend_y - 4}" r="4" fill="{color}"/>')
         s.append(
-            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="15" '
+            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="13" '
             f'fill="{MUTED}">{label}</text>'
         )
-        lx += len(label) * 8.2 + 46
+        lx += len(label) * 7.1 + 44
 
     s.append(
         f'  <text x="{W-PAD}" y="{H-22}" text-anchor="end" font-family="{MONO}" font-size="10" '

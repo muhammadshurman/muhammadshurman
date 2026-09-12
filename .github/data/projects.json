@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Multi-tenant SaaS kernel",
+    "blurb": "Plan and entitlement engine enforced at the database layer with row-level security",
+    "stack": ["TypeScript", "PostgreSQL", "Drizzle", "RLS"]
+  },
+  {
+    "name": "Hajez booking marketplace",
+    "blurb": "Resort and chalet reservations where availability, pricing and payment state always agree",
+    "stack": ["Node.js", "Express", "PostgreSQL", "Next.js"]
+  },
+  {
+    "name": "abjd.store",
+    "blurb": "Production e-commerce storefront and API serving live customer traffic",
+    "stack": ["Laravel", "PHP", "MySQL", "REST API"]
+  },
+  {
+    "name": "Smart customer support system",
+    "blurb": "Assisted ticket triage that cuts first-response time and support workload",
+    "stack": ["Laravel", "PostgreSQL", "Next.js"]
+  },
+  {
+    "name": "Lead qualification platform",
+    "blurb": "Scores inbound leads so sales spends its hours on high-intent prospects",
+    "stack": ["Laravel", "MySQL", "React"]
+  },
+  {
+    "name": "School management platform",
+    "blurb": "Attendance, records and parent communication for a school of 176 students",
+    "stack": ["Laravel", "MySQL", "RBAC", "Blade"]
+  },
+  {
+    "name": "Enterprise operations portal",
+    "blurb": "Requests and multi-level approvals with a full audit trail from submission to sign-off",
+    "stack": ["Laravel", "PostgreSQL", "Docker"]
+  }
+]
