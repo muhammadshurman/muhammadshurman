@@ -38,7 +38,8 @@ COLORS = {
     "Handlebars": "#f7931e", "EJS": "#a91e50", "Batchfile": "#C1F12E", "Procfile": "#3A4454",
 }
 FALLBACK = "#3A4454"
-IGNORED = {"HTML", "CSS", "SCSS", "Less", "Hack", "Batchfile", "Procfile", "Dockerfile", "Makefile"}
+IGNORED = {"HTML", "CSS", "SCSS", "Less", "Hack", "Batchfile", "Procfile", "Dockerfile", "Makefile",
+           "C#", "Kotlin", "ShaderLab", "HLSL", "Java", "Swift"}
 
 
 def api(url, attempts=4):
