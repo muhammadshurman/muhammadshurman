@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 258" width="1200" height="258" role="img" aria-label="GitHub activity for muhammadshurman">
   <rect x="0.5" y="0.5" width="1199" height="257" rx="18" fill="#0B0E14" stroke="#1A2230"/>
-  <text x="92" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">780</text>
+  <text x="92" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">425</text>
   <text x="92" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">COMMITS / 12 MONTHS</text>
   <path d="M332 44V116" stroke="#1A2230"/>
-  <text x="360" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">11</text>
-  <text x="360" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">PUBLIC REPOSITORIES</text>
+  <text x="360" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">36</text>
+  <text x="360" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">REPOSITORIES</text>
   <path d="M600 44V116" stroke="#1A2230"/>
-  <text x="628" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">0</text>
+  <text x="628" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">226</text>
   <text x="628" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">MERGED PULL REQUESTS</text>
   <path d="M868 44V116" stroke="#1A2230"/>
-  <text x="896" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">20</text>
+  <text x="896" y="88" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5" fill="#E9EEF6">38</text>
   <text x="896" y="112" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">STARS EARNED</text>
   <path d="M64 146H1136" stroke="#1A2230"/>
   <clipPath id="barclip"><rect x="64" y="176" width="1072" height="10" rx="5"/></clipPath>
   <g clip-path="url(#barclip)">
-    <rect x="64.0" y="176" width="469.5" height="10" fill="#f1e05a"/>
-    <rect x="532.5" y="176" width="174.7" height="10" fill="#4F5D95"/>
-    <rect x="706.1" y="176" width="167.2" height="10" fill="#f7523f"/>
-    <rect x="872.3" y="176" width="143.6" height="10" fill="#663399"/>
-    <rect x="1014.9" y="176" width="79.3" height="10" fill="#A97BFF"/>
-    <rect x="1093.1" y="176" width="38.5" height="10" fill="#3178c6"/>
-    <rect x="1130.6" y="176" width="6.4" height="10" fill="#3A4454"/>
+    <rect x="64.0" y="176" width="528.4" height="10" fill="#e34c26"/>
+    <rect x="591.4" y="176" width="155.4" height="10" fill="#4F5D95"/>
+    <rect x="745.8" y="176" width="146.8" height="10" fill="#f7523f"/>
+    <rect x="891.6" y="176" width="100.7" height="10" fill="#663399"/>
+    <rect x="991.3" y="176" width="90.0" height="10" fill="#f1e05a"/>
+    <rect x="1080.3" y="176" width="20.3" height="10" fill="#3178c6"/>
+    <rect x="1099.6" y="176" width="37.4" height="10" fill="#3A4454"/>
   </g>
-  <circle cx="68" cy="214" r="4" fill="#f1e05a"/>
-  <text x="80" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">JavaScript 43.7%</text>
-  <circle cx="224" cy="214" r="4" fill="#4F5D95"/>
-  <text x="236" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">PHP 16.2%</text>
-  <circle cx="332" cy="214" r="4" fill="#f7523f"/>
-  <text x="344" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Blade 15.5%</text>
-  <circle cx="454" cy="214" r="4" fill="#663399"/>
-  <text x="466" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">CSS 13.3%</text>
-  <circle cx="562" cy="214" r="4" fill="#A97BFF"/>
-  <text x="574" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Kotlin 7.3%</text>
-  <circle cx="684" cy="214" r="4" fill="#3178c6"/>
-  <text x="696" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">TypeScript 3.5%</text>
-  <circle cx="834" cy="214" r="4" fill="#3A4454"/>
-  <text x="846" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Other 0.5%</text>
+  <circle cx="68" cy="214" r="4" fill="#e34c26"/>
+  <text x="80" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">HTML 49.2%</text>
+  <circle cx="183" cy="214" r="4" fill="#4F5D95"/>
+  <text x="195" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">PHP 14.4%</text>
+  <circle cx="291" cy="214" r="4" fill="#f7523f"/>
+  <text x="303" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Blade 13.6%</text>
+  <circle cx="413" cy="214" r="4" fill="#663399"/>
+  <text x="425" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">CSS 9.3%</text>
+  <circle cx="514" cy="214" r="4" fill="#f1e05a"/>
+  <text x="526" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">JavaScript 8.3%</text>
+  <circle cx="664" cy="214" r="4" fill="#3178c6"/>
+  <text x="676" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">TypeScript 1.8%</text>
+  <circle cx="813" cy="214" r="4" fill="#3A4454"/>
+  <text x="825" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Other 3.4%</text>
   <text x="1136" y="236" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10" letter-spacing="1.3" fill="#3E4757">UPDATED 2026-09-12</text>
 </svg>
