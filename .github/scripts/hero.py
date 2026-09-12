@@ -36,23 +36,42 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def ascii_rows(path, cols, rows):
+def ascii_rows(path, cols, rows, opt):
     img = ImageOps.exif_transpose(Image.open(path)).convert("L")
-    img = ImageOps.autocontrast(img, cutoff=2)
+    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [1, 1])))
+    if opt.get("invert"):
+        img = ImageOps.invert(img)
+
+    gamma = float(opt.get("gamma", 1.0))
+    floor = int(opt.get("floor", 0))
+    lut = []
+    for v in range(256):
+        v = 255 * (v / 255) ** gamma
+        lut.append(0 if v < floor else int(min(255, v)))
+    img = img.point(lut)
+
     target = (cols * CHAR_W) / (rows * FS)
     w, h = img.size
-    if w / h > target:
-        new_w = int(h * target)
-        img = img.crop(((w - new_w) // 2, 0, (w + new_w) // 2, h))
+    if opt.get("fit", "contain") == "cover":
+        if w / h > target:
+            nw = int(h * target)
+            img = img.crop(((w - nw) // 2, 0, (w + nw) // 2, h))
+        else:
+            nh = int(w / target)
+            img = img.crop((0, (h - nh) // 2, w, (h + nh) // 2))
+        img = img.resize((cols, rows), Image.LANCZOS)
     else:
-        new_h = int(w / target)
-        img = img.crop((0, (h - new_h) // 2, w, (h + new_h) // 2))
-    img = img.resize((cols, rows), Image.LANCZOS)
+        scale = min(cols / w * CHAR_W, rows / h * FS) / CHAR_W
+        nw = max(1, min(cols, int(w * scale)))
+        nh = max(1, min(rows, int(h * scale * CHAR_W / FS)))
+        img = img.resize((nw, nh), Image.LANCZOS)
+        canvas = Image.new("L", (cols, rows), 0)
+        canvas.paste(img, ((cols - nw) // 2, (rows - nh) // 2))
+        img = canvas
+
     px = img.load()
-    out = []
-    for y in range(rows):
-        out.append("".join(RAMP[min(len(RAMP) - 1, px[x, y] * len(RAMP) // 256)] for x in range(cols)))
-    return out
+    return ["".join(RAMP[min(len(RAMP) - 1, px[x, y] * len(RAMP) // 256)] for x in range(cols))
+            for y in range(rows)]
 
 
 def placeholder(cols, rows):
@@ -76,7 +95,8 @@ def render(cfg):
     left_h = H - left_y - 62
     inner_w, inner_h = LEFT_W - 36, left_h - 40
     cols, rows = int(inner_w / CHAR_W), int(inner_h / FS)
-    art = ascii_rows(PORTRAIT, cols, rows) if PORTRAIT else placeholder(cols, rows)
+    opt = cfg.get("portrait", {})
+    art = ascii_rows(PORTRAIT, cols, rows, opt) if PORTRAIT else placeholder(cols, rows)
 
     right_x = PAD + LEFT_W + GAP
     right_w = W - PAD - right_x
@@ -104,7 +124,13 @@ def render(cfg):
         f'  <text x="{W/2:.0f}" y="{BAR/2 + 4:.0f}" text-anchor="middle" font-family="{MONO}" font-size="11.5" '
         f'fill="{DIM}">{esc(cfg["prompt"])}</text>'
     )
-    s.append(f'  <circle cx="{W-118}" cy="{BAR/2:.0f}" r="3.5" fill="{ACC}"/>')
+    s.append(
+        f'  <rect x="{W/2 + len(cfg["prompt"]) * 3.45:.0f}" y="{BAR/2 - 7:.0f}" width="7" height="13" fill="{ACC}">'
+        f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.45;0.5;1" dur="1.1s" '
+        f'repeatCount="indefinite"/></rect>'
+    )
+    s.append(f'  <circle cx="{W-118}" cy="{BAR/2:.0f}" r="3.5" fill="{ACC}">'
+             f'<animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/></circle>')
     s.append(
         f'  <text x="{W-104}" y="{BAR/2 + 4:.0f}" font-family="{MONO}" font-size="10" letter-spacing="1.4" '
         f'fill="{ACC}">{esc(cfg["status"])}</text>'
@@ -121,9 +147,21 @@ def render(cfg):
 
     ay = left_y + 36 + FS
     s.append(f'  <g font-family="{MONO}" font-size="{FS}" fill="url(#ascii)" xml:space="preserve">')
+    n = max(1, len(art))
     for i, line in enumerate(art):
-        s.append(f'    <text x="{left_x + 18}" y="{ay + i * FS:.1f}">{esc(line)}</text>')
+        t0 = 0.02 + 0.62 * i / n
+        s.append(
+            f'    <text x="{left_x + 18}" y="{ay + i * FS:.1f}" opacity="1">{esc(line)}'
+            f'<animate attributeName="opacity" values="0;0;1" keyTimes="0;{t0:.3f};{min(0.999, t0 + 0.05):.3f}" '
+            f'dur="2.6s" fill="freeze"/></text>'
+        )
     s.append("  </g>")
+    s.append(
+        f'  <rect x="{left_x + 1}" y="{left_y}" width="{LEFT_W - 2}" height="2" fill="{ACC}" opacity="0">'
+        f'<animate attributeName="y" values="{left_y};{left_y + left_h}" dur="2.6s" fill="freeze"/>'
+        f'<animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.5;1" dur="2.6s" '
+        f'fill="freeze"/></rect>'
+    )
 
     y = left_y + 20
     s.append(
@@ -136,6 +174,8 @@ def render(cfg):
         f'{esc(cfg["user"])} {"-" * 44}</text>'
     )
 
+    reveal = []
+
     def block(title, items, y):
         y += 30
         if title:
@@ -146,11 +186,16 @@ def render(cfg):
             y += 22
         for label, value in items:
             lab, dots, val = leader(label, value)
+            t0 = 0.30 + 0.045 * len(reveal)
+            reveal.append(1)
             s.append(
-                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="12.5" xml:space="preserve">'
+                f'  <text x="{right_x}" y="{y}" font-family="{MONO}" font-size="12.5" opacity="1" '
+                f'xml:space="preserve">'
                 f'<tspan fill="{ACC}">{esc(lab)}:</tspan>'
                 f'<tspan fill="#28303D"> {esc(dots)} </tspan>'
-                f'<tspan fill="{TEXT}">{esc(val)}</tspan></text>'
+                f'<tspan fill="{TEXT}">{esc(val)}</tspan>'
+                f'<animate attributeName="opacity" values="0;0;1" '
+                f'keyTimes="0;{min(0.94, t0):.3f};{min(0.999, t0 + 0.05):.3f}" dur="2.9s" fill="freeze"/></text>'
             )
             y += 21
         return y

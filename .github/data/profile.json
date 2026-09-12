@@ -5,24 +5,73 @@
   "card_label": "PROFILE / ENGINEER",
   "user": "muhammad@dev",
   "rows": [
-    ["Name", "Muhammad Al-Shurman"],
-    ["Role", "Backend-focused full-stack"],
-    ["Based", "Irbid, Jordan"],
-    ["Mode", "Design / Build / Ship"]
+    [
+      "Name",
+      "Muhammad Al-Shurman"
+    ],
+    [
+      "Role",
+      "Backend-focused full-stack"
+    ],
+    [
+      "Based",
+      "Irbid, Jordan"
+    ],
+    [
+      "Mode",
+      "Design / Build / Ship"
+    ]
   ],
   "focus": [
-    ["Backend", "Laravel and Node services"],
-    ["Data", "Postgres schema and tuning"],
-    ["Frontend", "Next.js and TypeScript"],
-    ["Quality", "Tests, reviews, small releases"]
+    [
+      "Backend",
+      "Laravel and Node services"
+    ],
+    [
+      "Data",
+      "Postgres schema and tuning"
+    ],
+    [
+      "Frontend",
+      "Next.js and TypeScript"
+    ],
+    [
+      "Quality",
+      "Tests, reviews, small releases"
+    ]
   ],
   "work": [
-    ["Kernel", "Multi-tenant entitlements"],
-    ["Hajez", "Booking marketplace"],
-    ["abjd", "Production e-commerce"],
-    ["Support", "Assisted ticket triage"],
-    ["School", "Operations for 176 students"]
+    [
+      "Kernel",
+      "Multi-tenant entitlements"
+    ],
+    [
+      "Hajez",
+      "Booking marketplace"
+    ],
+    [
+      "abjd",
+      "Production e-commerce"
+    ],
+    [
+      "Support",
+      "Assisted ticket triage"
+    ],
+    [
+      "School",
+      "Operations for 176 students"
+    ]
   ],
   "tagline": "FROM SCHEMA TO SHIPPED FEATURE",
-  "footer": "BACKEND ENGINEERING / REST APIS / POSTGRESQL / LARAVEL"
+  "footer": "BACKEND ENGINEERING / REST APIS / POSTGRESQL / LARAVEL",
+  "portrait": {
+    "fit": "contain",
+    "gamma": 1.25,
+    "floor": 26,
+    "cutoff": [
+      1,
+      1
+    ],
+    "invert": false
+  }
 }
