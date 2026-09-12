@@ -4,7 +4,9 @@
 import json
 import os
 
-from PIL import Image, ImageOps
+import math
+
+from PIL import Image, ImageFilter, ImageOps
 
 INK, PANEL, LINE = "#0B0E14", "#0F1520", "#1A2230"
 TEXT, MUTED, DIM, ACC = "#E9EEF6", "#8B97AA", "#5C6779", "#5B8DEF"
@@ -38,53 +40,72 @@ def esc(s):
 
 def ascii_rows(path, cols, rows, opt):
     img = ImageOps.exif_transpose(Image.open(path)).convert("L")
-    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [2, 2])))
+
+    box = opt.get("crop")
+    if box:
+        w, h = img.size
+        img = img.crop((int(box[0] * w), int(box[1] * h), int(box[2] * w), int(box[3] * h)))
+
+    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [1, 1])))
     if opt.get("invert"):
         img = ImageOps.invert(img)
 
-    if opt.get("autocrop", True):
+    if opt.get("autocrop", False):
         thresh = int(opt.get("subject_threshold", 45))
-        box = img.point(lambda v: 255 if v > thresh else 0).getbbox()
-        if box:
+        bb = img.point(lambda v: 255 if v > thresh else 0).getbbox()
+        if bb:
             iw, ih = img.size
             mx, my = int(iw * 0.03), int(ih * 0.03)
-            box = (max(0, box[0] - mx), max(0, box[1] - my),
-                   min(iw, box[2] + mx), min(ih, box[3] + my))
-            if (box[2] - box[0]) * (box[3] - box[1]) < iw * ih * 0.92:
-                img = img.crop(box)
-                img = ImageOps.autocontrast(img, cutoff=2)
+            bb = (max(0, bb[0] - mx), max(0, bb[1] - my), min(iw, bb[2] + mx), min(ih, bb[3] + my))
+            if (bb[2] - bb[0]) * (bb[3] - bb[1]) < iw * ih * 0.92:
+                img = ImageOps.autocontrast(img.crop(bb), cutoff=2)
 
-    gamma = float(opt.get("gamma", 1.0))
-    floor = int(opt.get("floor", 0))
-    lift = float(opt.get("lift", 1.0))
-    lut = []
-    for v in range(256):
-        v = 255 * (v / 255) ** gamma * lift
-        lut.append(0 if v < floor else int(min(255, max(0, v))))
-    img = img.point(lut)
-
-    target = (cols * CHAR_W) / (rows * FS)
+    gw, gh = cols + 2, rows + 2
+    target = (gw * CHAR_W) / (gh * FS)
     w, h = img.size
-    if opt.get("fit", "contain") == "cover":
+    if opt.get("fit", "cover") == "cover":
         if w / h > target:
             nw = int(h * target)
             img = img.crop(((w - nw) // 2, 0, (w + nw) // 2, h))
         else:
             nh = int(w / target)
             img = img.crop((0, (h - nh) // 2, w, (h + nh) // 2))
-        img = img.resize((cols, rows), Image.LANCZOS)
+        grid = img.resize((gw, gh), Image.LANCZOS)
     else:
-        scale = min(cols / w * CHAR_W, rows / h * FS) / CHAR_W
-        nw = max(1, min(cols, int(w * scale)))
-        nh = max(1, min(rows, int(h * scale * CHAR_W / FS)))
-        img = img.resize((nw, nh), Image.LANCZOS)
-        canvas = Image.new("L", (cols, rows), 0)
-        canvas.paste(img, ((cols - nw) // 2, (rows - nh) // 2))
-        img = canvas
+        scale = min(gw * CHAR_W / w, gh * FS / h)
+        nw = max(1, min(gw, int(w * scale / CHAR_W)))
+        nh = max(1, min(gh, int(h * scale / FS)))
+        grid = Image.new("L", (gw, gh), 0)
+        grid.paste(img.resize((nw, nh), Image.LANCZOS), ((gw - nw) // 2, (gh - nh) // 2))
 
-    px = img.load()
-    return ["".join(RAMP[min(len(RAMP) - 1, px[x, y] * len(RAMP) // 256)] for x in range(cols))
-            for y in range(rows)]
+    if opt.get("mode", "edges") == "edges":
+        grid = grid.filter(ImageFilter.GaussianBlur(float(opt.get("blur", 0.6))))
+        px = grid.load()
+        mag = [[math.hypot(px[x + 1, y] - px[x - 1, y], px[x, y + 1] - px[x, y - 1])
+                for x in range(1, cols + 1)] for y in range(1, rows + 1)]
+        peak = max(max(r) for r in mag) or 1
+        floor = float(opt.get("edge_floor", 0.16))
+        gain = float(opt.get("edge_gain", 1.5))
+        out = []
+        for row in mag:
+            line = ""
+            for v in row:
+                n = (v / peak - floor) / (1 - floor)
+                line += " " if n <= 0 else RAMP[min(len(RAMP) - 1, int(n ** 0.8 * gain * (len(RAMP) - 1)))]
+            out.append(line)
+        return out
+
+    gamma = float(opt.get("gamma", 1.0))
+    lift = float(opt.get("lift", 1.0))
+    floor = int(opt.get("floor", 0))
+    lut = []
+    for v in range(256):
+        v = 255 * (v / 255) ** gamma * lift
+        lut.append(0 if v < floor else int(min(255, max(0, v))))
+    grid = grid.point(lut)
+    px = grid.load()
+    return ["".join(RAMP[min(len(RAMP) - 1, px[x, y] * len(RAMP) // 256)] for x in range(1, cols + 1))
+            for y in range(1, rows + 1)]
 
 
 def placeholder(cols, rows):
