@@ -45,8 +45,9 @@ query($cursor: String) {
 """
 
 def gql(cursor=None, query=None):
-    body = json.dumps({"query": query or QUERY, "variables": {"cursor": cursor}}).encode()    req = urllib.request.Request(
-        "https://api.github.com/graphql",
+    variables = {} if query is TOTALS else {"cursor": cursor}
+    body = json.dumps({"query": query or QUERY, "variables": variables}).encode()
+    req = urllib.request.Request(        "https://api.github.com/graphql",
         data=body,
         headers={
             "Authorization": f"bearer {TOKEN}",
