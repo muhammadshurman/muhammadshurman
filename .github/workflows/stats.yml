@@ -20,7 +20,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.STATS_TOKEN }}
           GH_LOGIN: ${{ github.repository_owner }}
-          GH_AFFILIATION: owner,collaborator
+          GH_AFFILIATION: owner,collaborator,organization_member
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

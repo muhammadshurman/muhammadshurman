@@ -175,8 +175,8 @@ def render(d):
             f'letter-spacing="-0.5" fill="{TEXT}">{value}</text>'
         )
         s.append(
-            f'  <text x="{x + 28:.0f}" y="112" font-family="{MONO}" font-size="10.5" '
-            f'letter-spacing="1.4" fill="{DIM}">{label}</text>'
+            f'  <text x="{x + 28:.0f}" y="112" font-family="{MONO}" font-size="12" '
+            f'letter-spacing="1.2" fill="{DIM}">{label}</text>'
         )
 
     s.append(f'  <path d="M{PAD} 146H{W-PAD}" stroke="{LINE}"/>')
@@ -195,10 +195,10 @@ def render(d):
         label = f"{name} {pct:g}%"
         s.append(f'  <circle cx="{lx + 4:.0f}" cy="{legend_y - 4}" r="4" fill="{color}"/>')
         s.append(
-            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="12.5" '
+            f'  <text x="{lx + 16:.0f}" y="{legend_y}" font-family="{SANS}" font-size="15" '
             f'fill="{MUTED}">{label}</text>'
         )
-        lx += len(label) * 6.9 + 46
+        lx += len(label) * 8.2 + 46
 
     s.append(
         f'  <text x="{W-PAD}" y="{H-22}" text-anchor="end" font-family="{MONO}" font-size="10" '
