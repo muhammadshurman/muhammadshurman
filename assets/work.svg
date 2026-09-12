@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 776" width="1200" height="776" role="img" aria-label="Selected work">
+  <rect x="0.5" y="0.5" width="1199" height="775" rx="18" fill="#0B0E14" stroke="#1A2230"/>
+  <text x="40" y="40" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.6" fill="#5C6779">SELECTED.WORK ----------------------------------------------------</text>
+  <text x="1160" y="40" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4" fill="#5C6779">7 PROJECTS</text>
+  <rect x="40" y="62" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="60" y="86" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="74" y="102" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">Multi-tenant SaaS kernel</text>
+  <text x="570" y="101" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">ENTITLEMENTS AND TENANCY</text>
+  <path d="M60 118H570" stroke="#1A2230"/>
+  <text x="60" y="142" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Plan limits and feature access enforced in Postgres with</text>
+  <text x="60" y="161" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">row-level security, not in application code.</text>
+  <rect x="60" y="176" width="86" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="103" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">TypeScript</text>
+  <rect x="153" y="176" width="86" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="196" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">PostgreSQL</text>
+  <rect x="246" y="176" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="280" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Drizzle</text>
+  <rect x="610" y="62" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="630" y="86" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="644" y="102" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">Hajez</text>
+  <text x="1140" y="101" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">BOOKING MARKETPLACE</text>
+  <path d="M630 118H1140" stroke="#1A2230"/>
+  <text x="630" y="142" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Resort and chalet reservations where availability, pricing and</text>
+  <text x="630" y="161" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">payment state never drift apart.</text>
+  <rect x="630" y="176" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="664" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Node.js</text>
+  <rect x="704" y="176" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="738" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Express</text>
+  <rect x="778" y="176" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="812" y="192" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Next.js</text>
+  <rect x="40" y="238" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="60" y="262" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="74" y="278" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">abjd.store</text>
+  <text x="570" y="277" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">PRODUCTION E-COMMERCE</text>
+  <path d="M60 294H570" stroke="#1A2230"/>
+  <text x="60" y="318" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Storefront and API under live traffic, with the heaviest</text>
+  <text x="60" y="337" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">catalog and checkout queries rewritten.</text>
+  <rect x="60" y="352" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="94" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Laravel</text>
+  <rect x="134" y="352" width="41" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="154" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">PHP</text>
+  <rect x="182" y="352" width="54" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="209" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">MySQL</text>
+  <text x="570" y="368" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.2" fill="#5C6779">LIVE</text>
+  <rect x="610" y="238" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="630" y="262" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="644" y="278" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">Smart customer support system</text>
+  <text x="1140" y="277" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">ASSISTED TICKET TRIAGE</text>
+  <path d="M630 294H1140" stroke="#1A2230"/>
+  <text x="630" y="318" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Cuts first-response time by routing and summarising incoming</text>
+  <text x="630" y="337" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">tickets before an agent opens them.</text>
+  <rect x="630" y="352" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="664" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Laravel</text>
+  <rect x="704" y="352" width="86" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="747" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">PostgreSQL</text>
+  <rect x="797" y="352" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="830" y="368" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Next.js</text>
+  <rect x="40" y="414" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="60" y="438" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="74" y="454" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">Lead qualification platform</text>
+  <text x="570" y="453" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">SALES INTELLIGENCE</text>
+  <path d="M60 470H570" stroke="#1A2230"/>
+  <text x="60" y="494" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Scores inbound leads so the sales team spends its hours on the</text>
+  <text x="60" y="513" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">prospects that actually convert.</text>
+  <rect x="60" y="528" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="94" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Laravel</text>
+  <rect x="134" y="528" width="54" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="161" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">MySQL</text>
+  <rect x="195" y="528" width="54" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="222" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">React</text>
+  <rect x="610" y="414" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="630" y="438" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="644" y="454" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">School management platform</text>
+  <text x="1140" y="453" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">OPERATIONS FOR 176 STUDENTS</text>
+  <path d="M630 470H1140" stroke="#1A2230"/>
+  <text x="630" y="494" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Attendance, records and parent communication on one relational</text>
+  <text x="630" y="513" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">schema with role-based access.</text>
+  <rect x="630" y="528" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="664" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Laravel</text>
+  <rect x="704" y="528" width="54" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="731" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">MySQL</text>
+  <rect x="765" y="528" width="54" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="792" y="544" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Blade</text>
+  <rect x="40" y="590" width="550" height="158" rx="12" fill="#0F1520" stroke="#1A2230"/>
+  <rect x="60" y="614" width="2" height="20" rx="1" fill="#5B8DEF"/>
+  <text x="74" y="630" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16.5" font-weight="600" letter-spacing="-0.2" fill="#E9EEF6">Enterprise operations portal</text>
+  <text x="570" y="629" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="1.3" fill="#5B8DEF" opacity="0.85">WORKFLOW AND APPROVALS</text>
+  <path d="M60 646H570" stroke="#1A2230"/>
+  <text x="60" y="670" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">Multi-level approvals with a full audit trail from submission</text>
+  <text x="60" y="689" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#8B97AA">to final sign-off.</text>
+  <rect x="60" y="704" width="67" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="94" y="720" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Laravel</text>
+  <rect x="134" y="704" width="86" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="177" y="720" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">PostgreSQL</text>
+  <rect x="227" y="704" width="60" height="23" rx="6" fill="#0B0F16" stroke="#1A2230"/>
+  <text x="257" y="720" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" fill="#C3CCDA">Docker</text>
+</svg>
