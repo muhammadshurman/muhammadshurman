@@ -168,7 +168,9 @@ def leader(label, value, width=30):
 
 
 def render(cfg):
-    left_x, left_y = PAD, BAR + 22
+    side = cfg.get("layout", "left")
+    left_x = W - PAD - LEFT_W if side == "right" else PAD
+    left_y = BAR + 22
     left_h = H - left_y - 62
     inner_w, inner_h = LEFT_W - 36, left_h - 40
     cols, rows = int(inner_w / CHAR_W), int(inner_h / FS)
@@ -177,8 +179,8 @@ def render(cfg):
     art = [] if photo_mode else (
         ascii_rows(PORTRAIT, cols, rows, opt) if PORTRAIT else placeholder(cols, rows))
 
-    right_x = PAD + LEFT_W + GAP
-    right_w = W - PAD - right_x
+    right_x = PAD if side == "right" else PAD + LEFT_W + GAP
+    right_w = W - PAD - LEFT_W - GAP - PAD
 
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
