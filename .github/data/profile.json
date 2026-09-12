@@ -65,22 +65,21 @@
   "tagline": "FROM SCHEMA TO SHIPPED FEATURE",
   "footer": "BACKEND ENGINEERING / REST APIS / POSTGRESQL / LARAVEL",
   "portrait": {
-    "mode": "edges",
+    "mode": "photo",
     "crop": [
+      0.1,
       0.08,
-      0.09,
-      0.94,
-      0.83
+      0.92,
+      0.86
     ],
-    "fit": "cover",
-    "blur": 0.5,
-    "edge_floor": 0.13,
-    "edge_gain": 1.9,
+    "anchor": 0.18,
+    "shadow": "#070A10",
+    "mid": "#2F4C7C",
+    "highlight": "#DCE7FA",
     "cutoff": [
       1,
       1
     ],
-    "invert": false,
-    "autocrop": false
+    "quality": 82
   }
 }

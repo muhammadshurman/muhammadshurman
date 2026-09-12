@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Render assets/hero.svg: a terminal window with an ASCII portrait and a profile card."""
 
+import base64
+import io
 import json
 import os
 
@@ -108,6 +110,47 @@ def ascii_rows(path, cols, rows, opt):
             for y in range(1, rows + 1)]
 
 
+def photo_block(path, opt, x, y, w, h):
+    img = ImageOps.exif_transpose(Image.open(path)).convert("L")
+
+    box = opt.get("crop")
+    if box:
+        iw, ih = img.size
+        img = img.crop((int(box[0] * iw), int(box[1] * ih), int(box[2] * iw), int(box[3] * ih)))
+
+    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [1, 1])))
+    target = w / h
+    iw, ih = img.size
+    if iw / ih > target:
+        nw = int(ih * target)
+        img = img.crop(((iw - nw) // 2, 0, (iw + nw) // 2, ih))
+    else:
+        nh = int(iw / target)
+        img = img.crop((0, int((ih - nh) * float(opt.get("anchor", 0.5))), iw,
+                        int((ih - nh) * float(opt.get("anchor", 0.5))) + nh))
+    img = img.resize((int(w * 2), int(h * 2)), Image.LANCZOS)
+    img = ImageOps.colorize(img, black=opt.get("shadow", "#070A10"),
+                            mid=opt.get("mid", "#2F4C7C"), white=opt.get("highlight", "#DCE7FA"))
+
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", quality=int(opt.get("quality", 82)), optimize=True)
+    b64 = base64.b64encode(buf.getvalue()).decode()
+
+    return [
+        f'  <defs><clipPath id="photo"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8"/></clipPath>',
+        f'    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">'
+        f'<rect width="4" height="1" fill="#000000" opacity="0.13"/></pattern></defs>',
+        f'  <g clip-path="url(#photo)" opacity="1">'
+        f'<animate attributeName="opacity" values="0;1" dur="1.1s" fill="freeze"/>',
+        f'    <image x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" '
+        f'href="data:image/jpeg;base64,{b64}"/>',
+        f'    <rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#scan)"/>',
+        f'    <rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{ACC}" opacity="0.05"/>',
+        "  </g>",
+        f'  <rect x="{x}.5" y="{y}.5" width="{w-1}" height="{h-1}" rx="8" fill="none" stroke="{LINE}"/>',
+    ]
+
+
 def placeholder(cols, rows):
     out = []
     for y in range(rows):
@@ -130,7 +173,9 @@ def render(cfg):
     inner_w, inner_h = LEFT_W - 36, left_h - 40
     cols, rows = int(inner_w / CHAR_W), int(inner_h / FS)
     opt = cfg.get("portrait", {})
-    art = ascii_rows(PORTRAIT, cols, rows, opt) if PORTRAIT else placeholder(cols, rows)
+    photo_mode = opt.get("mode") == "photo" and PORTRAIT
+    art = [] if photo_mode else (
+        ascii_rows(PORTRAIT, cols, rows, opt) if PORTRAIT else placeholder(cols, rows))
 
     right_x = PAD + LEFT_W + GAP
     right_w = W - PAD - right_x
@@ -178,6 +223,9 @@ def render(cfg):
         f'  <text x="{left_x + 18}" y="{left_y + 22}" font-family="{MONO}" font-size="9.5" letter-spacing="1.6" '
         f'fill="{DIM}">{esc(cfg["portrait_label"])}</text>'
     )
+
+    if photo_mode:
+        s += photo_block(PORTRAIT, opt, left_x + 14, left_y + 32, LEFT_W - 28, left_h - 46)
 
     ay = left_y + 36 + FS
     s.append(f'  <g font-family="{MONO}" font-size="{FS}" fill="url(#ascii)" xml:space="preserve">')
