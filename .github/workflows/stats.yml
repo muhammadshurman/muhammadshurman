@@ -16,13 +16,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: check token
-        env:
-          GH_TOKEN: ${{ secrets.STATS_TOKEN }}
-        run: |
-          printf 'len=%s\n' "${#GH_TOKEN}"
-          curl -s -o /dev/null -w "user=%{http_code}\n" -H "Authorization: bearer $GH_TOKEN" https://api.github.com/user
-          curl -s -o /dev/null -w "repos=%{http_code}\n" -H "Authorization: bearer $GH_TOKEN" "https://api.github.com/user/repos?per_page=1&affiliation=owner"
       - run: python .github/scripts/stats.py
         env:
           GH_TOKEN: ${{ secrets.STATS_TOKEN }}
