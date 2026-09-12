@@ -38,6 +38,7 @@ COLORS = {
     "Handlebars": "#f7931e", "EJS": "#a91e50", "Batchfile": "#C1F12E", "Procfile": "#3A4454",
 }
 FALLBACK = "#3A4454"
+IGNORED = {"HTML", "CSS", "SCSS", "Less", "Hack", "Batchfile", "Procfile", "Dockerfile", "Makefile"}
 
 
 def api(url, attempts=4):
@@ -116,7 +117,9 @@ def collect():
 
     sizes = {}
     for r in repos[:80]:
-        for name, size in api(f"https://api.github.com/repos/{r['full_name']}/languages").items():
+                for name, size in api(f"https://api.github.com/repos/{r['full_name']}/languages").items():
+            if name in IGNORED:
+                continue
             sizes[name] = sizes.get(name, 0) + size
 
     total = sum(sizes.values()) or 1
