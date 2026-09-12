@@ -38,16 +38,29 @@ def esc(s):
 
 def ascii_rows(path, cols, rows, opt):
     img = ImageOps.exif_transpose(Image.open(path)).convert("L")
-    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [1, 1])))
+    img = ImageOps.autocontrast(img, cutoff=tuple(opt.get("cutoff", [2, 2])))
     if opt.get("invert"):
         img = ImageOps.invert(img)
 
+    if opt.get("autocrop", True):
+        thresh = int(opt.get("subject_threshold", 45))
+        box = img.point(lambda v: 255 if v > thresh else 0).getbbox()
+        if box:
+            iw, ih = img.size
+            mx, my = int(iw * 0.03), int(ih * 0.03)
+            box = (max(0, box[0] - mx), max(0, box[1] - my),
+                   min(iw, box[2] + mx), min(ih, box[3] + my))
+            if (box[2] - box[0]) * (box[3] - box[1]) < iw * ih * 0.92:
+                img = img.crop(box)
+                img = ImageOps.autocontrast(img, cutoff=2)
+
     gamma = float(opt.get("gamma", 1.0))
     floor = int(opt.get("floor", 0))
+    lift = float(opt.get("lift", 1.0))
     lut = []
     for v in range(256):
-        v = 255 * (v / 255) ** gamma
-        lut.append(0 if v < floor else int(min(255, v)))
+        v = 255 * (v / 255) ** gamma * lift
+        lut.append(0 if v < floor else int(min(255, max(0, v))))
     img = img.point(lut)
 
     target = (cols * CHAR_W) / (rows * FS)
