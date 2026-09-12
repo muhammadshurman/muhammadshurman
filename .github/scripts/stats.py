@@ -20,33 +20,47 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "stats.svg")
 TOTALS = """
 query {
   viewer {
-    followers { totalCount }
     pullRequests(states: MERGED) { totalCount }
     contributionsCollection { totalCommitContributions restrictedContributionsCount }
   }
 }
 """
 
-REPOS = """
-query($cursor: String) {
-  viewer {
-    repositories(first: 8, after: $cursor, isFork: false, ownerAffiliations: OWNER) {
-      pageInfo { hasNextPage endCursor }
-      nodes {
-        stargazerCount
-        owner { login }
-        languages(first: 6, orderBy: {field: SIZE, direction: DESC}) {
-          edges { size node { name color } }
-        }
-      }
-    }
-  }
+COLORS = {
+    "PHP": "#4F5D95", "Blade": "#f7523f", "JavaScript": "#f1e05a", "TypeScript": "#3178c6",
+    "HTML": "#e34c26", "CSS": "#663399", "SCSS": "#c6538c", "Less": "#1d365d",
+    "Python": "#3572A5", "Java": "#b07219", "Kotlin": "#A97BFF", "Dart": "#00B4AB",
+    "C#": "#178600", "C++": "#f34b7d", "C": "#555555", "Go": "#00ADD8", "Rust": "#dea584",
+    "Ruby": "#701516", "Swift": "#F05138", "Shell": "#89e051", "PowerShell": "#012456",
+    "Dockerfile": "#384d54", "Makefile": "#427819", "Vue": "#41b883", "Svelte": "#ff3e00",
+    "Astro": "#ff5a03", "SQL": "#e38c00", "PLpgSQL": "#336790", "TSQL": "#e38c00",
+    "Twig": "#c1d026", "Smarty": "#f0c040", "MDX": "#fcb32c", "Hack": "#878787",
+    "Handlebars": "#f7931e", "EJS": "#a91e50", "Batchfile": "#C1F12E", "Procfile": "#3A4454",
 }
-"""
+FALLBACK = "#3A4454"
 
 
-def gql(query, variables=None, attempts=4):
-    body = json.dumps({"query": query, "variables": variables or {}}).encode()
+def api(url, attempts=4):
+    for i in range(attempts):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"bearer {TOKEN}",
+                "Accept": "application/vnd.github+json",
+                "User-Agent": "profile-stats",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.URLError as e:
+            last = e
+        time.sleep(2 ** i)
+    raise RuntimeError(f"GET {url} failed: {last}")
+
+
+def gql(query, attempts=4):
+    body = json.dumps({"query": query}).encode()
     last = None
     for i in range(attempts):
         req = urllib.request.Request(
@@ -74,8 +88,10 @@ MOCK = {
     "commits": 0, "stars": 0, "prs": 0, "repos": 0,
     "langs": [("PHP", "#4F5D95", 38.0), ("TypeScript", "#3178c6", 24.0),
               ("Blade", "#f7523f", 16.0), ("JavaScript", "#f1e05a", 12.0),
-              ("CSS", "#663399", 6.0), ("Other", "#3A4454", 4.0)],
+              ("CSS", "#663399", 6.0), ("Other", FALLBACK, 4.0)],
 }
+
+AFFILIATION = os.environ.get("GH_AFFILIATION", "owner,collaborator,organization_member")
 
 
 def collect():
@@ -84,31 +100,34 @@ def collect():
             raise SystemExit("GH_TOKEN is empty in CI")
         return MOCK
 
-    totals = gql(TOTALS)
-    stars, owned, sizes, colors = 0, 0, {}, {}
-    cursor = None
-    while True:
-        repos = gql(REPOS, {"cursor": cursor})["repositories"]
-        for node in repos["nodes"]:
-            if node["owner"]["login"].lower() == LOGIN.lower():
-                stars += node["stargazerCount"]
-                owned += 1
-            for edge in node["languages"]["edges"]:
-                name = edge["node"]["name"]
-                sizes[name] = sizes.get(name, 0) + edge["size"]
-                colors[name] = edge["node"]["color"] or "#3A4454"
-        if not repos["pageInfo"]["hasNextPage"]:
+    repos, page = [], 1
+    while page <= 5:
+        batch = api(
+            "https://api.github.com/user/repos"
+            f"?per_page=100&page={page}&affiliation={AFFILIATION}&sort=pushed"
+        )
+        repos += [r for r in batch if not r["fork"] and not r["archived"]]
+        if len(batch) < 100:
             break
-        cursor = repos["pageInfo"]["endCursor"]
+        page += 1
 
-    contrib = totals["contributionsCollection"]
+    stars = sum(r["stargazers_count"] for r in repos if r["owner"]["login"].lower() == LOGIN.lower())
+    owned = sum(1 for r in repos if r["owner"]["login"].lower() == LOGIN.lower())
+
+    sizes = {}
+    for r in repos[:80]:
+        for name, size in api(f"https://api.github.com/repos/{r['full_name']}/languages").items():
+            sizes[name] = sizes.get(name, 0) + size
+
     total = sum(sizes.values()) or 1
     ranked = sorted(sizes.items(), key=lambda kv: -kv[1])
-    langs = [(n, colors[n], round(s / total * 100, 1)) for n, s in ranked[:6]]
+    langs = [(n, COLORS.get(n, FALLBACK), round(s / total * 100, 1)) for n, s in ranked[:6]]
     rest = round(100 - sum(p for _, _, p in langs), 1)
     if rest >= 0.5:
-        langs.append(("Other", "#3A4454", rest))
+        langs.append(("Other", FALLBACK, rest))
 
+    totals = gql(TOTALS)
+    contrib = totals["contributionsCollection"]
     return {
         "commits": contrib["totalCommitContributions"] + contrib["restrictedContributionsCount"],
         "stars": stars,
