@@ -16,17 +16,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install --quiet pillow
+      - run: python .github/scripts/hero.py
       - run: python .github/scripts/stats.py
         env:
           GH_TOKEN: ${{ secrets.STATS_TOKEN }}
           GH_LOGIN: ${{ github.repository_owner }}
           GH_AFFILIATION: owner,collaborator
-      - run: python .github/scripts/work.py
+      - run: python .github/scripts/readme.py
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN }}
+          GH_LOGIN: ${{ github.repository_owner }}
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/stats.svg assets/work.svg
+          git add assets/hero.svg assets/stats.svg README.md
           git diff --staged --quiet && exit 0
-          git commit -m "chore: refresh panels"
+          git commit -m "chore: refresh profile"
           git pull --rebase
           git push

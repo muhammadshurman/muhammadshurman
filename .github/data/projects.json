@@ -1,37 +1,58 @@
 [
   {
     "name": "Multi-tenant SaaS kernel",
-    "blurb": "Plan and entitlement engine enforced at the database layer with row-level security",
-    "stack": ["TypeScript", "PostgreSQL", "Drizzle", "RLS"]
+    "focus": "Entitlements and tenancy",
+    "why": "Plan limits and feature access enforced in Postgres with row-level security, not in application code.",
+    "stack": ["TypeScript", "PostgreSQL", "Drizzle"],
+    "url": "",
+    "live": ""
   },
   {
-    "name": "Hajez booking marketplace",
-    "blurb": "Resort and chalet reservations where availability, pricing and payment state always agree",
-    "stack": ["Node.js", "Express", "PostgreSQL", "Next.js"]
+    "name": "Hajez",
+    "focus": "Booking marketplace",
+    "why": "Resort and chalet reservations where availability, pricing and payment state never drift apart.",
+    "stack": ["Node.js", "Express", "Next.js"],
+    "url": "",
+    "live": ""
   },
   {
     "name": "abjd.store",
-    "blurb": "Production e-commerce storefront and API serving live customer traffic",
-    "stack": ["Laravel", "PHP", "MySQL", "REST API"]
+    "focus": "Production e-commerce",
+    "why": "Storefront and API under live traffic, with the heaviest catalog and checkout queries rewritten.",
+    "stack": ["Laravel", "PHP", "MySQL"],
+    "url": "",
+    "live": "https://abjd.store"
   },
   {
     "name": "Smart customer support system",
-    "blurb": "Assisted ticket triage that cuts first-response time and support workload",
-    "stack": ["Laravel", "PostgreSQL", "Next.js"]
+    "focus": "Assisted ticket triage",
+    "why": "Cuts first-response time by routing and summarising incoming tickets before an agent opens them.",
+    "stack": ["Laravel", "PostgreSQL", "Next.js"],
+    "url": "",
+    "live": ""
   },
   {
     "name": "Lead qualification platform",
-    "blurb": "Scores inbound leads so sales spends its hours on high-intent prospects",
-    "stack": ["Laravel", "MySQL", "React"]
+    "focus": "Sales intelligence",
+    "why": "Scores inbound leads so the sales team spends its hours on the prospects that actually convert.",
+    "stack": ["Laravel", "MySQL", "React"],
+    "url": "",
+    "live": ""
   },
   {
     "name": "School management platform",
-    "blurb": "Attendance, records and parent communication for a school of 176 students",
-    "stack": ["Laravel", "MySQL", "RBAC", "Blade"]
+    "focus": "Operations for 176 students",
+    "why": "Attendance, records and parent communication on one relational schema with role-based access.",
+    "stack": ["Laravel", "MySQL", "Blade"],
+    "url": "",
+    "live": ""
   },
   {
     "name": "Enterprise operations portal",
-    "blurb": "Requests and multi-level approvals with a full audit trail from submission to sign-off",
-    "stack": ["Laravel", "PostgreSQL", "Docker"]
+    "focus": "Workflow and approvals",
+    "why": "Multi-level approvals with a full audit trail from submission to final sign-off.",
+    "stack": ["Laravel", "PostgreSQL", "Docker"],
+    "url": "",
+    "live": ""
   }
 ]

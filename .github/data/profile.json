@@ -1,0 +1,28 @@
+{
+  "prompt": "muhammad@dev ~ % ./profile",
+  "status": "AVAILABLE",
+  "portrait_label": "PORTRAIT / MUHAMMAD",
+  "card_label": "PROFILE / ENGINEER",
+  "user": "muhammad@dev",
+  "rows": [
+    ["Name", "Muhammad Al-Shurman"],
+    ["Role", "Backend-focused full-stack"],
+    ["Based", "Irbid, Jordan"],
+    ["Mode", "Design / Build / Ship"]
+  ],
+  "focus": [
+    ["Backend", "Laravel and Node services"],
+    ["Data", "Postgres schema and tuning"],
+    ["Frontend", "Next.js and TypeScript"],
+    ["Quality", "Tests, reviews, small releases"]
+  ],
+  "work": [
+    ["Kernel", "Multi-tenant entitlements"],
+    ["Hajez", "Booking marketplace"],
+    ["abjd", "Production e-commerce"],
+    ["Support", "Assisted ticket triage"],
+    ["School", "Operations for 176 students"]
+  ],
+  "tagline": "FROM SCHEMA TO SHIPPED FEATURE",
+  "footer": "BACKEND ENGINEERING / REST APIS / POSTGRESQL / LARAVEL"
+}
