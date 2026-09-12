@@ -1,4 +1,4 @@
-name: stats
+﻿name: stats
 
 on:
   schedule:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-         - name: check token
+      - name: check token
         env:
           GH_TOKEN: ${{ secrets.STATS_TOKEN }}
         run: |
