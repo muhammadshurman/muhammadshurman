@@ -25,4 +25,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/stats.svg
-          git diff --staged --quiet || (git commit -m "chore: refresh stats" && git push)
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: refresh stats"
+          git pull --rebase
+          git push
