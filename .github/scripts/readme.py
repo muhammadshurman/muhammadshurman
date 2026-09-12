@@ -39,9 +39,6 @@ def api(url, attempts=3):
 
 def work_block(projects):
     lines = ['<img src="assets/work.svg" alt="Selected work: projects, focus and stack" width="100%" />']
-    links = [f"[{p['name']}]({p.get('live') or p['url']})" for p in projects if p.get("live") or p.get("url")]
-    if links:
-        # lines += ["", "Live: " + " · ".join(links)]
     return "\n".join(lines)
 
 
