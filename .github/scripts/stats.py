@@ -117,7 +117,7 @@ def collect():
 
     sizes = {}
     for r in repos[:80]:
-                for name, size in api(f"https://api.github.com/repos/{r['full_name']}/languages").items():
+        for name, size in api(f"https://api.github.com/repos/{r['full_name']}/languages").items():
             if name in IGNORED:
                 continue
             sizes[name] = sizes.get(name, 0) + size
