@@ -28,8 +28,7 @@ query {
 QUERY = """
 query($cursor: String) {
   viewer {
-    repositories(first: 10, after: $cursor, isFork: false,
-                 affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+    repositories(first: 50, after: $cursor, isFork: false, ownerAffiliations: OWNER) {
       pageInfo { hasNextPage endCursor }
       nodes {
         stargazerCount
