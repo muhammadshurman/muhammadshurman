@@ -55,6 +55,8 @@ def gql(cursor=None):
 
 
 def collect():
+    if not TOKEN and os.environ.get("GITHUB_ACTIONS"):
+        raise SystemExit("GH_TOKEN is empty in CI")
     if not TOKEN:
         return {
             "commits": 0, "stars": 0, "prs": 0, "repos": 0,
