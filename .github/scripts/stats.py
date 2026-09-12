@@ -15,20 +15,27 @@ LOGIN = os.environ.get("GH_LOGIN", "muhammadshurman")
 TOKEN = os.environ.get("GH_TOKEN", "")
 OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "stats.svg")
 
-QUERY = """
-query($cursor: String) {
+TOTALS = """
+query {
   viewer {
     followers { totalCount }
     pullRequests(states: MERGED) { totalCount }
     contributionsCollection { totalCommitContributions restrictedContributionsCount }
-    repositories(first: 100, after: $cursor, isFork: false,
+  }
+}
+"""
+
+QUERY = """
+query($cursor: String) {
+  viewer {
+    repositories(first: 25, after: $cursor, isFork: false,
                  affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER],
-                 ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {      totalCount
+                 ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
       pageInfo { hasNextPage endCursor }
       nodes {
         stargazerCount
         owner { login }
-        languages(first: 12, orderBy: {field: SIZE, direction: DESC}) {
+        languages(first: 8, orderBy: {field: SIZE, direction: DESC}) {
           edges { size node { name color } }
         }
       }
@@ -37,10 +44,8 @@ query($cursor: String) {
 }
 """
 
-
-def gql(cursor=None):
-    body = json.dumps({"query": QUERY, "variables": {"cursor": cursor}}).encode()
-    req = urllib.request.Request(
+def gql(cursor=None, query=None):
+    body = json.dumps({"query": query or QUERY, "variables": {"cursor": cursor}}).encode()    req = urllib.request.Request(
         "https://api.github.com/graphql",
         data=body,
         headers={
@@ -67,12 +72,11 @@ def collect():
                       ("CSS", "#663399", 6.0), ("Other", "#3A4454", 4.0)],
         }
 
+    first = gql(query=TOTALS)
     stars, owned, sizes, colors = 0, 0, {}, {}
-    cursor, first = None, None
+    cursor = None
     while True:
-        user = gql(cursor)
-        first = first or user
-        repos = user["repositories"]
+        repos = gql(cursor)["repositories"]
         for node in repos["nodes"]:
             if node["owner"]["login"].lower() == LOGIN.lower():
                 stars += node["stargazerCount"]
