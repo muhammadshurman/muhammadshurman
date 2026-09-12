@@ -36,13 +36,6 @@ Ship small and reversible. Every migration has a way back, and every release sta
 
 <img src="assets/stats.svg" alt="GitHub activity: commits, repositories, merged pull requests, stars and language distribution" width="100%" />
 
-## Recent activity
+## Contribution graph
 
-<!-- activity:start -->
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-- Sep 12, 2026: pushed 1 commit to [muhammadshurman/muhammadshurman](https://github.com/muhammadshurman/muhammadshurman)
-<!-- activity:end -->
+<img src="assets/snake.svg" alt="Contribution graph rendered as a snake game" width="100%" />
