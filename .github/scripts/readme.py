@@ -37,18 +37,12 @@ def api(url, attempts=3):
     raise RuntimeError(f"GET {url} failed: {last}")
 
 
-def work_table(projects):
-    rows = ["| Project | Focus | What it does | Stack |", "| --- | --- | --- | --- |"]
-    for p in projects:
-        name = f"**{p['name']}**"
-        if p.get("url"):
-            name = f"[**{p['name']}**]({p['url']})"
-        why = p["why"]
-        if p.get("live"):
-            why += f" [Live]({p['live']})"
-        stack = " · ".join(p["stack"])
-        rows.append(f"| {name} | {p['focus']} | {why} | {stack} |")
-    return "\n".join(rows)
+def work_block(projects):
+    lines = ['<img src="assets/work.svg" alt="Selected work: projects, focus and stack" width="100%" />']
+    links = [f"[{p['name']}]({p.get('live') or p['url']})" for p in projects if p.get("live") or p.get("url")]
+    if links:
+        lines += ["", "Live: " + " · ".join(links)]
+    return "\n".join(lines)
 
 
 def describe(event):
@@ -98,8 +92,6 @@ def activity_list():
 
 def inject(text, marker, body):
     start, end = f"<!-- {marker}:start -->", f"<!-- {marker}:end -->"
-    if start not in text or end not in text:
-        return text
     head = text.index(start) + len(start)
     tail = text.index(end)
     return text[:head] + "\n" + body + "\n" + text[tail:]
@@ -111,7 +103,7 @@ if __name__ == "__main__":
     with open(README, encoding="utf-8") as f:
         text = f.read()
 
-    text = inject(text, "work", work_table(projects))
+    text = inject(text, "work", work_block(projects))
     text = inject(text, "activity", activity_list())
 
     with open(README, "w", encoding="utf-8") as f:
