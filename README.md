@@ -17,8 +17,6 @@ I build web platforms that hold up in production. Most of my work sits on the se
 
 <!-- work:start -->
 <img src="assets/work.svg" alt="Selected work: projects, focus and stack" width="100%" />
-
-Live: [abjd.store](https://abjd.store)
 <!-- work:end -->
 
 ## How I work
