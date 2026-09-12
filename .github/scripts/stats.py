@@ -3,6 +3,8 @@
 
 import json
 import os
+import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
@@ -25,15 +27,15 @@ query {
 }
 """
 
-QUERY = """
+REPOS = """
 query($cursor: String) {
   viewer {
-    repositories(first: 50, after: $cursor, isFork: false, ownerAffiliations: OWNER) {
+    repositories(first: 8, after: $cursor, isFork: false, ownerAffiliations: OWNER) {
       pageInfo { hasNextPage endCursor }
       nodes {
         stargazerCount
         owner { login }
-        languages(first: 8, orderBy: {field: SIZE, direction: DESC}) {
+        languages(first: 6, orderBy: {field: SIZE, direction: DESC}) {
           edges { size node { name color } }
         }
       }
@@ -42,40 +44,51 @@ query($cursor: String) {
 }
 """
 
-def gql(cursor=None, query=None):
-    variables = {} if query is TOTALS else {"cursor": cursor}
-    body = json.dumps({"query": query or QUERY, "variables": variables}).encode()
-    req = urllib.request.Request(        "https://api.github.com/graphql",
-        data=body,
-        headers={
-            "Authorization": f"bearer {TOKEN}",
-            "Content-Type": "application/json",
-            "User-Agent": "profile-stats",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        payload = json.load(r)
-    if "errors" in payload:
-        raise RuntimeError(payload["errors"])
-    return payload["data"]["viewer"]
+
+def gql(query, variables=None, attempts=4):
+    body = json.dumps({"query": query, "variables": variables or {}}).encode()
+    last = None
+    for i in range(attempts):
+        req = urllib.request.Request(
+            "https://api.github.com/graphql",
+            data=body,
+            headers={
+                "Authorization": f"bearer {TOKEN}",
+                "Content-Type": "application/json",
+                "User-Agent": "profile-stats",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                payload = json.load(r)
+            if "errors" not in payload:
+                return payload["data"]["viewer"]
+            last = payload["errors"]
+        except urllib.error.URLError as e:
+            last = e
+        time.sleep(2 ** i)
+    raise RuntimeError(last)
+
+
+MOCK = {
+    "commits": 0, "stars": 0, "prs": 0, "repos": 0,
+    "langs": [("PHP", "#4F5D95", 38.0), ("TypeScript", "#3178c6", 24.0),
+              ("Blade", "#f7523f", 16.0), ("JavaScript", "#f1e05a", 12.0),
+              ("CSS", "#663399", 6.0), ("Other", "#3A4454", 4.0)],
+}
 
 
 def collect():
-    if not TOKEN and os.environ.get("GITHUB_ACTIONS"):
-        raise SystemExit("GH_TOKEN is empty in CI")
     if not TOKEN:
-        return {
-            "commits": 0, "stars": 0, "prs": 0, "repos": 0,
-            "langs": [("PHP", "#4F5D95", 38.0), ("TypeScript", "#3178c6", 24.0),
-                      ("Blade", "#f7523f", 16.0), ("JavaScript", "#f1e05a", 12.0),
-                      ("CSS", "#663399", 6.0), ("Other", "#3A4454", 4.0)],
-        }
+        if os.environ.get("GITHUB_ACTIONS"):
+            raise SystemExit("GH_TOKEN is empty in CI")
+        return MOCK
 
-    first = gql(query=TOTALS)
+    totals = gql(TOTALS)
     stars, owned, sizes, colors = 0, 0, {}, {}
     cursor = None
     while True:
-        repos = gql(cursor)["repositories"]
+        repos = gql(REPOS, {"cursor": cursor})["repositories"]
         for node in repos["nodes"]:
             if node["owner"]["login"].lower() == LOGIN.lower():
                 stars += node["stargazerCount"]
@@ -88,7 +101,7 @@ def collect():
             break
         cursor = repos["pageInfo"]["endCursor"]
 
-    contrib = first["contributionsCollection"]
+    contrib = totals["contributionsCollection"]
     total = sum(sizes.values()) or 1
     ranked = sorted(sizes.items(), key=lambda kv: -kv[1])
     langs = [(n, colors[n], round(s / total * 100, 1)) for n, s in ranked[:6]]
@@ -99,7 +112,7 @@ def collect():
     return {
         "commits": contrib["totalCommitContributions"] + contrib["restrictedContributionsCount"],
         "stars": stars,
-        "prs": first["pullRequests"]["totalCount"],
+        "prs": totals["pullRequests"]["totalCount"],
         "repos": owned,
         "langs": langs,
     }
