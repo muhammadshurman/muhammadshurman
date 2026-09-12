@@ -92,6 +92,8 @@ def activity_list():
 
 def inject(text, marker, body):
     start, end = f"<!-- {marker}:start -->", f"<!-- {marker}:end -->"
+    if start not in text or end not in text:
+        return text
     head = text.index(start) + len(start)
     tail = text.index(end)
     return text[:head] + "\n" + body + "\n" + text[tail:]
