@@ -49,5 +49,4 @@ Ship small and reversible. Every migration has a way back, and every release sta
 
 ## Activity
 
-<img src="https://github-readme-stats.vercel.app/api?username=muhammadshurman&show_icons=true&include_all_commits=true&rank_icon=github&border_radius=18&bg_color=0B0E14&border_color=1A2230&title_color=E9EEF6&icon_color=5B8DEF&text_color=8B97AA&ring_color=5B8DEF" width="48.5%" alt="GitHub statistics" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=muhammadshurman&layout=compact&langs_count=8&border_radius=18&bg_color=0B0E14&border_color=1A2230&title_color=E9EEF6&text_color=8B97AA" width="48.5%" alt="Most used languages" />
+<img src="assets/stats.svg" alt="GitHub activity: commits, repositories, merged pull requests, stars and language distribution" width="100%" />
